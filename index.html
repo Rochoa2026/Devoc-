@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#243c35"><meta name="description" content="Biblioteca de prédicas y estudio bíblico">
+<link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg">
+<title>Devocionario Bíblico</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <button class="menu" id="menuBtn" aria-label="Abrir menú">☰</button>
+  <div><div class="brand">✦ DEVOCIONARIO</div><div class="subbrand">Biblioteca bíblica y guía para predicadores</div></div>
+  <button id="installBtn" class="install hidden">Instalar</button>
+</header>
+<div class="layout">
+<aside id="sidebar">
+  <div class="side-title">BIBLIOTECA</div>
+  <button class="nav active" data-view="home">⌂ Inicio</button>
+  <button class="nav" data-view="books">▤ Libros bíblicos</button>
+  <button class="nav" data-view="library">▣ Documentos Word</button>
+  <button class="nav" data-view="admin">＋ Agregar contenido</button>
+  <div class="side-note">Tu biblioteca se guarda en este dispositivo. Exporta un respaldo periódicamente.</div>
+</aside>
+<main id="main">
+<section id="homeView" class="view">
+  <div class="hero"><div class="eyebrow">LEE · REFLEXIONA · ENSEÑA</div><h1>La Palabra que transforma la vida</h1><p>Una biblioteca para estudiar las Escrituras, preparar prédicas y llevar sus enseñanzas a la familia, el trabajo y la administración.</p><button class="primary" id="continueBtn">Continuar leyendo</button></div>
+  <div class="stats" id="stats"></div>
+  <h2>Libros en desarrollo</h2><div id="homeBooks" class="book-grid"></div>
+  <h2>Lectura reciente</h2><div id="recentBox" class="panel muted">Todavía no hay lecturas recientes.</div>
+</section>
+<section id="booksView" class="view hidden">
+  <div class="section-head"><div><div class="eyebrow">ÍNDICE GENERAL</div><h1>Libros bíblicos</h1><p>Selecciona un libro y después el capítulo que deseas estudiar.</p></div></div>
+  <input id="bookSearch" class="search" placeholder="Buscar libro o documento...">
+  <div id="booksList" class="book-grid"></div>
+</section>
+<section id="libraryView" class="view hidden">
+  <div class="eyebrow">BIBLIOTECA DIGITAL</div><h1>Documentos Word</h1><p>Todos los documentos incorporados aparecerán aquí, organizados por libro y fecha.</p>
+  <div id="documentsList"></div>
+</section>
+<section id="readerView" class="view hidden">
+  <button class="back" id="backBooks">← Volver al índice</button>
+  <div class="reader-head"><div class="eyebrow" id="readerBookLabel">LIBRO</div><h1 id="readerTitle">Capítulo</h1><p id="readerRef"></p></div>
+  <div class="chapter-nav"><button id="prevChapter">← Anterior</button><select id="chapterSelect" aria-label="Elegir capítulo"></select><button id="nextChapter">Siguiente →</button></div>
+  <article id="sermonContent" class="sermon panel"></article>
+  <section class="infographic-area"><h2>Infografía del capítulo</h2><div id="chapterImages" class="image-grid"></div><p class="muted small">Puedes agregar una o varias imágenes desde «Agregar contenido».</p></section>
+  <div class="reader-actions"><button id="favoriteBtn">☆ Guardar favorito</button><button id="markReadBtn">✓ Marcar como leído</button><button id="printBtn">Imprimir / PDF</button></div>
+</section>
+<section id="adminView" class="view hidden">
+  <div class="eyebrow">ADMINISTRACIÓN</div><h1>Agregar contenido</h1><p>Importa los Word de tus devocionarios. La aplicación extrae el texto y lo organiza para su lectura.</p>
+  <div class="panel">
+    <h2>1. Agregar documento Word</h2>
+    <label class="field">Nombre del libro o devocionario<input id="bookName" placeholder="Ej. Evangelio de Marcos"></label>
+    <label class="field">Título del documento<input id="docTitle" placeholder="Ej. Guía para el predicador"></label>
+    <label class="field">Archivo Word (.docx)<input id="wordFile" type="file" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"></label>
+    <button class="primary" id="importWordBtn">Importar documento</button><div id="importStatus" class="status"></div>
+    <p class="small muted">Para extraer archivos DOCX se requiere conexión a Internet durante la importación inicial. Después, el contenido guardado puede leerse sin conexión.</p>
+  </div>
+  <div class="panel">
+    <h2>2. Agregar infografía</h2>
+    <label class="field">Libro<select id="imageBook"></select></label>
+    <label class="field">Capítulo<select id="imageChapter"></select></label>
+    <label class="field">Imagen (JPG o PNG)<input id="imageFile" type="file" accept="image/*"></label>
+    <label class="field">Descripción<input id="imageCaption" placeholder="Ej. Las enseñanzas de Jesús"></label>
+    <button class="primary" id="addImageBtn">Agregar infografía</button><div id="imageStatus" class="status"></div>
+  </div>
+  <div class="panel">
+    <h2>3. Respaldo de biblioteca</h2><p>Exporta tus documentos, textos, favoritos e infografías para trasladarlos a otro dispositivo.</p>
+    <div class="button-row"><button id="backupBtn">Descargar respaldo</button><label class="file-button">Restaurar respaldo<input id="restoreFile" type="file" accept=".json,application/json"></label></div>
+    <p class="small muted">Los archivos Word originales se conservan en la biblioteca interna como contenido extraído; guarda también tus DOCX originales.</p>
+  </div>
+</section>
+</main>
+</div>
+<div id="toast" role="status"></div>
+<script src="https://unpkg.com/mammoth@1.8.0/mammoth.browser.min.js"></script>
+<script src="app.js"></script>
+</body></html>

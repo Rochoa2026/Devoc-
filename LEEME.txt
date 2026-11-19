@@ -1,0 +1,34 @@
+DEVOCIONARIO BÍBLICO – PWA
+Versión 2 · Biblioteca e importación mejorada
+
+CONTENIDO
+- Índice inicial: Evangelio de Marcos (16 capítulos) y Evangelio de Lucas (24 capítulos).
+- Lector por libro y capítulo, navegación anterior/siguiente.
+- Importación de documentos Word (.docx) con Mammoth.js.
+- Detección de títulos de capítulo tanto en encabezados como en párrafos normales.
+- Si se importa Marcos o Lucas, se actualiza el libro existente en lugar de crear otro duplicado.
+- Biblioteca de infografías asociadas a libro y capítulo.
+- Favoritos, seguimiento de lectura, impresión y respaldo/restauración.
+- Instalación PWA y caché de recursos de la aplicación.
+
+IMPORTANTE SOBRE LOS DOCUMENTOS
+Los archivos Word originales no están incluidos en este paquete. El índice de Marcos y Lucas está preparado, pero las prédicas completas deben incorporarse importando los DOCX originales desde la sección “Agregar contenido”. No se ha sustituido el contenido original por textos inventados.
+
+INSTALACIÓN
+1. Descomprime el ZIP.
+2. Publica los archivos en un hosting que sirva HTTPS (por ejemplo, GitHub Pages).
+3. Abre la dirección en Chrome o Edge.
+4. Selecciona “Instalar aplicación” o “Agregar a pantalla de inicio”.
+
+IMPORTAR UN WORD
+1. Abre “Agregar contenido”.
+2. Selecciona el archivo .docx.
+3. Escribe el nombre del libro, por ejemplo “Marcos” o “Lucas”.
+4. Pulsa “Importar documento”.
+5. Revisa el índice y abre los capítulos detectados.
+
+NOTAS TÉCNICAS
+- Los datos se guardan localmente en el dispositivo mediante IndexedDB.
+- La primera carga del lector DOCX requiere conexión a internet para obtener Mammoth.js desde CDN.
+- Para evitar pérdida de información, usa periódicamente “Crear respaldo”.
+- Si un Word no usa títulos “Capítulo 1”, “Prédica 1”, etc., revisa los encabezados antes de importarlo.
